@@ -1,4 +1,2 @@
 # Epsilon
-Epsilon Client source code ez leak refined by Eridani
-
-meme client with loader
+Removed auth from the src so you can build it without issues and wont cry why the client is not working
