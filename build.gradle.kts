@@ -150,14 +150,6 @@ tasks {
                 "ForceLoadAsMod" to "true"
             )
         }
-        isZip64 = true
-        from(
-            library.map {
-                if (it.isDirectory) it
-                else zipTree(it)
-            }
-
-        )
         exclude(
             "META-INF/versions/**",
             "**/*.RSA",
@@ -167,5 +159,4 @@ tasks {
             "**/*.txt"
         )
     }
-
 }
