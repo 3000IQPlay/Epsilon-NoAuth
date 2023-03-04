@@ -138,4 +138,34 @@ tasks {
         }
     }
 
+    jar {
+        enabled = true
+        manifest {
+            attributes(
+                "Main-Class" to "club.eridani.epsilon.loader.LoaderKt",
+                "FMLCorePluginContainsFMLMod" to "true",
+                "FMLCorePlugin" to "club.eridani.epsilon.loader.FMLCoreLoader",
+                "TweakClass" to "org.spongepowered.asm.launch.MixinTweaker",
+                "TweakOrder" to 0,
+                "ForceLoadAsMod" to "true"
+            )
+        }
+        isZip64 = true
+        from(
+            library.map {
+                if (it.isDirectory) it
+                else zipTree(it)
+            }
+
+        )
+        exclude(
+            "META-INF/versions/**",
+            "**/*.RSA",
+            "**/*.SF",
+            "**/module-info.class",
+            "**/LICENSE",
+            "**/*.txt"
+        )
+    }
+
 }
